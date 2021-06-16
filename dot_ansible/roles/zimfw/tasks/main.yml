@@ -1,0 +1,22 @@
+- name: Check if zimfw is already initialized
+  stat:
+    path: ~/.zimfw
+  register: zimfw_stats
+
+- name: Already present
+  debug:
+    msg: "Zimfw is already initialized {{zimfw_stats}}"
+  when: zimfw_stats.stat.exists
+
+- name: Fetch zimfw
+  uri:
+    url: https://raw.githubusercontent.com/zimfw/install/master/install.zsh
+    return_content: yes
+  register: zimfw_installer
+  when: not zimfw_stats.stat.exists
+
+- name: Run zimfw installer
+  shell:
+    cmd: zsh
+    stdin: "{{ zimfw_installer.content }}"
+  when: not zimfw_stats.stat.exists
