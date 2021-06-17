@@ -39,3 +39,5 @@ zmodule zsh-users/zsh-syntax-highlighting
 zmodule zsh-users/zsh-history-substring-search
 # }}} End configuration added by Zim install
 
+zmodule eriner
+

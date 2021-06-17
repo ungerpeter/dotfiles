@@ -8,7 +8,7 @@ if [ -z $tags ]; then
 fi
 
 if ! [ -x "$(command -v ansible)" ]; then
-  sudo apt install ansible
+  apt install ansible
 fi
 
 ansible-playbook -i ~/.ansible/hosts ~/.ansible/local_env.yml --ask-become-pass --tags $tags

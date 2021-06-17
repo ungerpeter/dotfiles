@@ -1,5 +1,7 @@
 - name: Set up local workstation
+  gather_facts: true
   hosts: local
+  become: no
   roles:
     - role: zsh
       tags:
@@ -10,3 +12,9 @@
     - role: asdf
       tags:
         - asdf
+    - role: docker
+      tags:
+        - docker
+    - role: golang
+      tags:
+        - golang
