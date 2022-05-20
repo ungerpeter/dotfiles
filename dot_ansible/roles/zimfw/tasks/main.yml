@@ -1,0 +1,17 @@
+- name: Check if zimfw is already initialized | stat
+  stat:
+    path: "{{ ansible_env.HOME }}/.zim"
+  register: zimfw
+
+- name: Install zimfw | get_url
+  get_url: 
+    url: "https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh"
+    dest: "{{ ansible_env.HOME }}/.zim/zimfw.zsh"
+  when: 
+    - not zimfw.stat.exists
+
+- name: Update zimfw modules
+  shell:
+    cmd: "zsh {{ ansible_env.HOME }}/.zim/zimfw.zsh install && zsh {{ ansible_env.HOME }}/.zim/zimfw.zsh uninstall"
+  args:
+    executable: /usr/bin/zsh
