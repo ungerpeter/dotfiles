@@ -1,0 +1,5 @@
+[user]
+	name = Peter Unger
+	email = peps.unger@gmail.com
+[init]
+	defaultBranch = main
