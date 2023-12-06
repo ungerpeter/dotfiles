@@ -1,0 +1,47 @@
+{
+	"name": "Peters Dev Env",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": {
+			"PLATFORM": "linux/amd64",
+			"VARIANT": "bullseye"
+		}
+	},
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": false,
+			"configureZshAsDefaultShell": false,
+			"installOhMyZsh": false,
+			"installOhMyZshConfig": false,
+			"upgradePackages": true,
+			"username": "automatic",
+			"userUid": "automatic",
+			"userGid": "automatic",
+			"nonFreePackages": true
+		},
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+			"version": "latest",
+			"moby": "true",
+			"dockerDashComposeVersion": "v2",
+			"installDockerBuildx": true
+		}
+	},
+	"remoteEnv": {
+		"LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}",
+		"PLATFORM": "linux/amd64"
+	},
+	"runArgs": ["--init"],
+	"remoteUser": "root",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/root/.local/share/chezmoi,type=bind",
+	"workspaceFolder": "/root/.local/share/chezmoi",
+	"mounts": [
+		{ "source": "/var/run/docker.sock", "target": "/var/run/docker.sock", "type": "bind" }
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"foxundermoon.shell-format"
+			]
+		}
+	}
+}
