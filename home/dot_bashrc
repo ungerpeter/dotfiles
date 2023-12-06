@@ -1,0 +1,7 @@
+export VOLTA_HOME="/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
+. '/.asdf/asdf.sh'
+. '/.asdf/completions/asdf.bash'
+
+eval "$(starship init bash)"

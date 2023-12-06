@@ -1,0 +1,18 @@
+{
+    "gum": {
+        "tags": [
+            "cli"
+        ],
+        "repo": "https://github.com/lwiechec/asdf-gum.git"
+    },
+    "gopass": {
+        "tags": [
+            "secrets"
+        ]
+    },
+    "chezmoi": {
+        "tags": [
+            "dotfiles"
+        ]
+    }
+}
